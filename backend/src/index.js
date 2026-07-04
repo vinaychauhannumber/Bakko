@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cookieParser());
 const allowedOrigins = [
   "http://localhost:5173",
-  process.env.FRONTEND_URL
+  process.env.FRONTEND_URL ? process.env.FRONTEND_URL.replace(/\/$/, "") : null
 ].filter(Boolean);
 
 app.use(
